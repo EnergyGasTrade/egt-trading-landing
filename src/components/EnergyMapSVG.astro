@@ -48,34 +48,38 @@
     />
     <text x="472" y="398" class="country-label label-ua" text-anchor="middle">UA</text>
 
-    {/* Connection lines — dashed, at border crossing corridors */}
-    <line x1="453" y1="388" x2="463" y2="390" class="connection-line" />
-    <line x1="452" y1="399" x2="460" y2="397" class="connection-line" />
-    <line x1="453" y1="403" x2="461" y2="400" class="connection-line" />
-    <line x1="458" y1="407" x2="464" y2="403" class="connection-line" />
+    {/* Connection lines — dashed, placed at actual SVG border contact points */}
+    {/* PL ↔ UA: 750 kV Rzeszów–Khmelnytskyi */}
+    <line x1="453" y1="391" x2="462" y2="397" class="connection-line" />
+    {/* SK ↔ UA: 400 kV Mukachevo–V. Kapušany */}
+    <line x1="451" y1="400" x2="460" y2="399" class="connection-line" />
+    {/* HU ↔ UA: 750 kV Albertirsa–Zakhidnoukrainska */}
+    <line x1="452" y1="403" x2="461" y2="399" class="connection-line" />
+    {/* RO ↔ UA: Burshtyn island 220/400 kV */}
+    <line x1="458" y1="405" x2="466" y2="398" class="connection-line" />
 
-    {/* Pulsing dots at border crossings */}
-    {/* PL ↔ UA: Zamość–Dobrotvir */}
-    <circle cx="458" cy="389" r="0.8" class="pulse-dot dot-1" />
-    <circle cx="458" cy="389" r="0.8" class="pulse-ring dot-1" />
+    {/* Pulsing dots — positioned exactly at SVG border contact midpoints */}
+    {/* PL ↔ UA: border midpoint (457.7, 394.5) */}
+    <circle cx="457.7" cy="394.5" r="0.8" class="pulse-dot dot-1" />
+    <circle cx="457.7" cy="394.5" r="0.8" class="pulse-ring dot-1" />
 
-    {/* SK ↔ UA: Veľké Kapušany–Mukachevo */}
-    <circle cx="456" cy="398" r="0.8" class="pulse-dot dot-2" />
-    <circle cx="456" cy="398" r="0.8" class="pulse-ring dot-2" />
+    {/* SK ↔ UA: border midpoint (456.1, 399.5) */}
+    <circle cx="456.1" cy="399.5" r="0.8" class="pulse-dot dot-2" />
+    <circle cx="456.1" cy="399.5" r="0.8" class="pulse-ring dot-2" />
 
-    {/* HU ↔ UA: Záhony–Mukachevo */}
-    <circle cx="457" cy="401.5" r="0.8" class="pulse-dot dot-3" />
-    <circle cx="457" cy="401.5" r="0.8" class="pulse-ring dot-3" />
+    {/* HU ↔ UA: border midpoint (457, 400.6) */}
+    <circle cx="457" cy="400.6" r="0.8" class="pulse-dot dot-3" />
+    <circle cx="457" cy="400.6" r="0.8" class="pulse-ring dot-3" />
 
-    {/* RO ↔ UA: Siret–Chernivtsi */}
-    <circle cx="461" cy="405" r="0.8" class="pulse-dot dot-4" />
-    <circle cx="461" cy="405" r="0.8" class="pulse-ring dot-4" />
+    {/* RO ↔ UA: border midpoint (462.1, 401.2) */}
+    <circle cx="462.1" cy="401.2" r="0.8" class="pulse-dot dot-4" />
+    <circle cx="462.1" cy="401.2" r="0.8" class="pulse-ring dot-4" />
 
-    {/* Energy flow particles */}
-    <circle cx="456" cy="388.5" r="0.5" class="flow-particle flow-1" />
-    <circle cx="454" cy="398.5" r="0.5" class="flow-particle flow-2" />
-    <circle cx="455" cy="402" r="0.5" class="flow-particle flow-3" />
-    <circle cx="459.5" cy="406" r="0.5" class="flow-particle flow-4" />
+    {/* Energy flow particles — on the EU-country side of each line */}
+    <circle cx="455" cy="392.5" r="0.5" class="flow-particle flow-1" />
+    <circle cx="453" cy="399.8" r="0.5" class="flow-particle flow-2" />
+    <circle cx="454" cy="402" r="0.5" class="flow-particle flow-3" />
+    <circle cx="460" cy="403.5" r="0.5" class="flow-particle flow-4" />
   </svg>
 </div>
 
