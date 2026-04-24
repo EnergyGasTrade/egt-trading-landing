@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { useTranslations } from '../../i18n/useTranslations';
+
+const locale = 'en';
+const t = useTranslations(locale);
+---
+
+<Base title={`${t.consumerCabinet.title} — EGT trading`} description={t.consumerCabinet.metaDescription} locale={locale}>
+  <Header locale={locale} t={t} />
+  <main id="main-content" class="pt-28 pb-24">
+    <article class="mx-auto max-w-[var(--measure)] px-6">
+      <h1 class="text-heading-1 text-text mb-8">{t.consumerCabinet.title}</h1>
+      <p class="text-body-lg text-text-secondary mb-12">{t.consumerCabinet.intro}</p>
+
+      <section class="mb-12" aria-labelledby="registration-heading">
+        <h2 id="registration-heading" class="text-heading-3 text-text mb-6">{t.consumerCabinet.registrationTitle}</h2>
+        <p class="text-body text-text-secondary mb-6">{t.consumerCabinet.registrationText}</p>
+
+        <div class="flex items-center gap-3 mb-6">
+          <Icon name="lucide:mail" class="w-5 h-5 text-accent shrink-0" />
+          <a
+            href={`mailto:${t.contacts.emailValue}`}
+            class="text-body font-medium text-accent hover:underline underline-offset-2 transition-colors"
+          >
+            {t.contacts.emailValue}
+          </a>
+        </div>
+
+        <ul class="space-y-3 mb-8">
+          {t.consumerCabinet.requiredData.map((item) => (
+            <li class="flex items-start gap-3 text-body text-text-secondary">
+              <Icon name="lucide:check" class="w-4 h-4 text-accent shrink-0 mt-1" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <p class="text-body text-text-secondary mb-8">{t.consumerCabinet.afterRegistration}</p>
+
+        <a
+          href={t.consumerCabinet.cabinetUrl}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
+        >
+          <Icon name="lucide:log-in" class="w-4 h-4" />
+          {t.consumerCabinet.cabinetLinkText}
+        </a>
+      </section>
+    </article>
+  </main>
+  <Footer locale={locale} t={t} />
+</Base>

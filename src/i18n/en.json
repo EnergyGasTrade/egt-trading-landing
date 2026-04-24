@@ -7,6 +7,7 @@
     "about": "About",
     "services": "Services",
     "contacts": "Contacts",
+    "consumerCabinet": "Consumer cabinet",
     "langSwitch": "UK",
     "langLabel": "Переключити на українську",
     "themeToggle": "Toggle theme",
@@ -93,6 +94,7 @@
   "footer": {
     "privacy": "Privacy policy",
     "documents": "Regulatory documents",
+    "consumerCabinet": "Consumer cabinet",
     "rights": "All rights reserved."
   },
   "privacy": {
@@ -107,6 +109,22 @@
     "section3Text": "We implement technical and organizational measures to protect your personal information in accordance with applicable Ukrainian legislation.",
     "section4Title": "Contact",
     "section4Text": "For questions regarding personal data processing, please contact us at: egt.trading.ua@gmail.com"
+  },
+  "consumerCabinet": {
+    "title": "Consumer cabinet",
+    "metaDescription": "EGT trading consumer cabinet — registration and access to your personal account.",
+    "intro": "To register for the consumer personal cabinet, contact the supplier via email and provide the required information.",
+    "registrationTitle": "Cabinet registration",
+    "registrationText": "To gain access to your personal cabinet, send a request to the supplier's email with the following details:",
+    "requiredData": [
+      "Company EDRPOU code",
+      "Full name of the contact person",
+      "Email address",
+      "Preferred login password"
+    ],
+    "afterRegistration": "After your data is processed, you will be able to log in to the personal cabinet using the link below.",
+    "cabinetLinkText": "Log in to cabinet",
+    "cabinetUrl": "#"
   },
   "documents": {
     "title": "Regulatory documents",

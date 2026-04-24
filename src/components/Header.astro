@@ -12,6 +12,7 @@ const { locale, t } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homeUrl = locale === 'uk' ? `${base}/` : `${base}/en/`;
 const langSwitchUrl = getAlternateUrl(Astro.url, locale === 'uk' ? 'en' : 'uk');
+const consumerCabinetUrl = locale === 'uk' ? `${base}/consumer-cabinet/` : `${base}/en/consumer-cabinet/`;
 ---
 
 <header
@@ -39,6 +40,9 @@ const langSwitchUrl = getAlternateUrl(Astro.url, locale === 'uk' ? 'en' : 'uk');
         </a>
         <a href={`${homeUrl}#contacts`} class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
           {t.nav.contacts}
+        </a>
+        <a href={consumerCabinetUrl} class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors" data-astro-prefetch>
+          {t.nav.consumerCabinet}
         </a>
       </nav>
 
@@ -95,6 +99,9 @@ const langSwitchUrl = getAlternateUrl(Astro.url, locale === 'uk' ? 'en' : 'uk');
         </a>
         <a href={`${homeUrl}#contacts`} class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
           {t.nav.contacts}
+        </a>
+        <a href={consumerCabinetUrl} class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2" data-astro-prefetch>
+          {t.nav.consumerCabinet}
         </a>
       </div>
     </nav>

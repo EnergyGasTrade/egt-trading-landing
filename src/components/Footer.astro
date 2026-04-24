@@ -11,6 +11,7 @@ const year = new Date().getFullYear();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const privacyUrl = locale === 'uk' ? `${base}/privacy/` : `${base}/en/privacy/`;
 const documentsUrl = locale === 'uk' ? `${base}/documents/` : `${base}/en/documents/`;
+const consumerCabinetUrl = locale === 'uk' ? `${base}/consumer-cabinet/` : `${base}/en/consumer-cabinet/`;
 ---
 
 <footer class="border-t border-border bg-bg-secondary mt-auto">
@@ -74,6 +75,14 @@ const documentsUrl = locale === 'uk' ? `${base}/documents/` : `${base}/en/docume
           data-astro-prefetch
         >
           {t.footer.documents}
+        </a>
+        <span class="text-border" aria-hidden="true">|</span>
+        <a
+          href={consumerCabinetUrl}
+          class="hover:text-text transition-colors"
+          data-astro-prefetch
+        >
+          {t.footer.consumerCabinet}
         </a>
         <span class="text-border" aria-hidden="true">|</span>
         <a

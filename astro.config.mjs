@@ -45,6 +45,8 @@ export default defineConfig({
           'menu',
           'x',
           'arrow-up-right',
+          'check',
+          'log-in',
         ],
       },
     }),
