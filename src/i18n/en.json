@@ -68,15 +68,15 @@
     "address": "Address",
     "addressValue": "[OFFICE_ADDRESS_EN]",
     "phone": "Phone",
-    "phoneValue": "+380 ",
+    "phoneValue": "+380(95)886-88-22",
     "email": "Email",
-    "emailValue": "[EMAIL]",
+    "emailValue": "egt.trading.ua@gmail.com",
     "hours": "Working hours",
     "hoursValue": "Mon — Fri: 09:00 — 18:00",
     "mapTitle": "Office location on map"
   },
   "legal": {
-    "companyName": "[COMPANY_LEGAL_NAME_EN]",
+    "companyName": "EGT Trading LLC",
     "edrpou": "[EDRPOU]",
     "vat": "[VAT]",
     "eic": "[EIC_X]",
