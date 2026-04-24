@@ -10,6 +10,7 @@ const { locale, t } = Astro.props;
 const year = new Date().getFullYear();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const privacyUrl = locale === 'uk' ? `${base}/privacy/` : `${base}/en/privacy/`;
+const documentsUrl = locale === 'uk' ? `${base}/documents/` : `${base}/en/documents/`;
 ---
 
 <footer class="border-t border-border bg-bg-secondary mt-auto">
@@ -66,13 +67,23 @@ const privacyUrl = locale === 'uk' ? `${base}/privacy/` : `${base}/en/privacy/`;
     {/* Bottom bar */}
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-text-muted">
       <p>&copy; {year} {t.legal.companyName}. {t.footer.rights}</p>
-      <a
-        href={privacyUrl}
-        class="hover:text-text transition-colors"
-        data-astro-prefetch
-      >
-        {t.footer.privacy}
-      </a>
+      <nav class="flex items-center gap-3" aria-label="Legal links">
+        <a
+          href={documentsUrl}
+          class="hover:text-text transition-colors"
+          data-astro-prefetch
+        >
+          {t.footer.documents}
+        </a>
+        <span class="text-border" aria-hidden="true">|</span>
+        <a
+          href={privacyUrl}
+          class="hover:text-text transition-colors"
+          data-astro-prefetch
+        >
+          {t.footer.privacy}
+        </a>
+      </nav>
     </div>
   </div>
 </footer>

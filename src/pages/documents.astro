@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { useTranslations } from '../i18n/useTranslations';
+
+const locale = 'uk';
+const t = useTranslations(locale);
+---
+
+<Base title={`${t.documents.title} — EGT trading`} description={t.documents.metaDescription} locale={locale}>
+  <Header locale={locale} t={t} />
+  <main id="main-content" class="pt-28 pb-24">
+    <article class="mx-auto max-w-[var(--measure)] px-6">
+      <h1 class="text-heading-1 text-text mb-8">{t.documents.title}</h1>
+      <p class="text-body-lg text-text-secondary mb-12">{t.documents.intro}</p>
+
+      <section class="mb-12" aria-labelledby="electricity-heading">
+        <h2 id="electricity-heading" class="text-heading-3 text-text mb-6">{t.documents.electricityTitle}</h2>
+        <ol class="list-none space-y-3">
+          {t.documents.electricity.map((doc, i) => (
+            <li>
+              <a
+                href={doc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group inline-flex items-start gap-2 text-body text-text-secondary hover:text-accent transition-colors"
+              >
+                <span class="text-text-muted shrink-0 tabular-nums">{i + 1}.</span>
+                <span class="group-hover:underline underline-offset-2">{doc.title}</span>
+                <Icon name="lucide:arrow-up-right" class="w-4 h-4 shrink-0 mt-1 opacity-0 group-hover:opacity-60 transition-opacity" />
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section aria-labelledby="gas-heading">
+        <h2 id="gas-heading" class="text-heading-3 text-text mb-6">{t.documents.gasTitle}</h2>
+        <ol class="list-none space-y-3">
+          {t.documents.gas.map((doc, i) => (
+            <li>
+              <a
+                href={doc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group inline-flex items-start gap-2 text-body text-text-secondary hover:text-accent transition-colors"
+              >
+                <span class="text-text-muted shrink-0 tabular-nums">{i + 1}.</span>
+                <span class="group-hover:underline underline-offset-2">{doc.title}</span>
+                <Icon name="lucide:arrow-up-right" class="w-4 h-4 shrink-0 mt-1 opacity-0 group-hover:opacity-60 transition-opacity" />
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    </article>
+  </main>
+  <Footer locale={locale} t={t} />
+</Base>
