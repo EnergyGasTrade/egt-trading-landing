@@ -66,28 +66,26 @@ const consumerCabinetUrl = locale === 'uk' ? `${base}/consumer-cabinet/` : `${ba
     </div>
 
     {/* Bottom bar */}
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-text-muted">
-      <p>&copy; {year} {t.legal.companyName}. {t.footer.rights}</p>
-      <nav class="flex items-center gap-3" aria-label="Legal links">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+      <p class="text-xs text-text-muted">&copy; {year} {t.legal.companyName}. {t.footer.rights}</p>
+      <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium" aria-label="Legal links">
         <a
           href={documentsUrl}
-          class="hover:text-text transition-colors"
+          class="text-accent underline underline-offset-4 decoration-accent/40 hover:decoration-accent transition-colors"
           data-astro-prefetch
         >
           {t.footer.documents}
         </a>
-        <span class="text-border" aria-hidden="true">|</span>
         <a
           href={consumerCabinetUrl}
-          class="hover:text-text transition-colors"
+          class="text-accent underline underline-offset-4 decoration-accent/40 hover:decoration-accent transition-colors"
           data-astro-prefetch
         >
           {t.footer.consumerCabinet}
         </a>
-        <span class="text-border" aria-hidden="true">|</span>
         <a
           href={privacyUrl}
-          class="hover:text-text transition-colors"
+          class="text-accent underline underline-offset-4 decoration-accent/40 hover:decoration-accent transition-colors"
           data-astro-prefetch
         >
           {t.footer.privacy}
