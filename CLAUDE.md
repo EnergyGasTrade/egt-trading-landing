@@ -1,4 +1,4 @@
-# EGT Trading — corporate business card site
+# EGT trading — corporate business card site
 
 Ukrainian licensed electricity market participant. Import, export, supply, and trading of electric energy across UA and EU markets.
 
@@ -83,7 +83,7 @@ Implementation:
 
 ### 1. Header
 Sticky, thin, `backdrop-filter: blur(12px)` on scroll.
-- Left: logo (text-based "EGT Trading" in display font until SVG provided)
+- Left: logo (text-based "EGT trading" in display font until SVG provided)
 - Center/right: nav — About · Services · Contacts
 - Right edge: language switch (UK/EN) · theme toggle
 
@@ -128,8 +128,8 @@ Use these tokens in i18n dictionaries. Document them in README for handoff.
 
 | Token | Meaning | Format |
 |---|---|---|
-| `[COMPANY_LEGAL_NAME_UK]` | Full legal name Ukrainian | ТОВ «EGT Trading» |
-| `[COMPANY_LEGAL_NAME_EN]` | Full legal name English | EGT Trading LLC |
+| `ТОВ "ЕГТ трейдинг"` | Full legal name Ukrainian | ТОВ «EGT trading» |
+| `[COMPANY_LEGAL_NAME_EN]` | Full legal name English | EGT trading LLC |
 | `[EDRPOU]` | State registry code | 8 digits |
 | `[VAT]` | VAT / IPN number | 12 digits |
 | `[EIC_X]` | EIC X-type code (energy market participant ID, issued by Ukrenergo per ENTSO-E scheme) | 16 chars |

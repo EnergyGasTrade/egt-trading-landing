@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "EGT Trading — electricity import, export & trading",
+    "title": "EGT trading — electricity import, export & trading",
     "description": "Licensed participant of Ukraine's electricity market. Import, export, supply, and trading of electric energy across UA and EU markets."
   },
   "nav": {
@@ -15,7 +15,7 @@
     "skipToContent": "Skip to main content"
   },
   "hero": {
-    "title": "EGT Trading",
+    "title": "EGT trading",
     "tagline": "Electricity without borders",
     "description": "Licensed wholesale electricity market participant. Import, export, supply, and trading across Ukraine and European Union markets.",
     "scrollHint": "Scroll down"
@@ -23,7 +23,7 @@
   "about": {
     "sectionLabel": "About us",
     "title": "New company. Proven expertise.",
-    "p1": "EGT Trading is a licensed participant of Ukraine's electricity market, founded by a team with over 15 years of combined experience in the energy sector.",
+    "p1": "EGT trading is a licensed participant of Ukraine's electricity market, founded by a team with over 15 years of combined experience in the energy sector.",
     "p2": "We specialize in cross-border electricity trading, providing efficient solutions for import and export between the Ukrainian and European energy systems.",
     "p3": "Deep understanding of NEURC regulatory requirements, day-ahead and intraday market mechanisms, and ENTSO-E operational specifics form the foundation of our daily operations."
   },
@@ -68,7 +68,7 @@
     "address": "Address",
     "addressValue": "Baida Vyshnevetskoho street, b. 37, Cherkasy, 18001, Ukraine",
     "phone": "Phone",
-    "phoneValue": "+380(95)886-88-22",
+    "phoneValue": "+380 (95) 886-88-22",
     "email": "Email",
     "emailValue": "egt.trading.ua@gmail.com",
     "hours": "Working hours",
@@ -76,7 +76,7 @@
     "mapTitle": "Office location on map"
   },
   "legal": {
-    "companyName": "EGT Trading LLC",
+    "companyName": "EGT trading LLC",
     "edrpou": "[EDRPOU]",
     "vat": "[VAT]",
     "eic": "[EIC_X]",
@@ -96,8 +96,8 @@
   },
   "privacy": {
     "title": "Privacy policy",
-    "metaDescription": "EGT Trading privacy policy — personal data processing.",
-    "intro": "This privacy policy describes how EGT Trading collects, uses, and protects your personal information.",
+    "metaDescription": "EGT trading privacy policy — personal data processing.",
+    "intro": "This privacy policy describes how EGT trading collects, uses, and protects your personal information.",
     "section1Title": "Information collection",
     "section1Text": "We collect the minimum information necessary to operate our website. Currently, we do not use cookies for tracking or analytics.",
     "section2Title": "Use of information",

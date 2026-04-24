@@ -68,44 +68,141 @@
     <circle cx="462.1" cy="401.2" r="0.8" class="pulse-dot dot-4" />
     <circle cx="462.1" cy="401.2" r="0.8" class="pulse-ring dot-4" />
 
-    {/* Animated energy sparks — travel back and forth along interconnector routes */}
+    {/* Animated energy sparks with fading dotted trails */}
+
     {/* PL ↔ UA: 750 kV Rzeszów–Khmelnytskyi */}
     <circle r="0.5" class="energy-spark" filter="url(#spark-glow)">
-      <animateMotion dur="3.5s" repeatCount="indefinite" calcMode="linear"
+      <animateMotion dur="7s" repeatCount="indefinite" calcMode="linear"
+        path="M453,391 L462,397" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.35" class="spark-trail trail-1">
+      <animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" begin="0.2s"
+        path="M453,391 L462,397" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.25" class="spark-trail trail-2">
+      <animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" begin="0.4s"
+        path="M453,391 L462,397" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.18" class="spark-trail trail-3">
+      <animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" begin="0.6s"
         path="M453,391 L462,397" keyPoints="0;1;0" keyTimes="0;0.5;1" />
     </circle>
     <circle r="0.35" class="energy-spark spark-dim" filter="url(#spark-glow)">
-      <animateMotion dur="3.5s" repeatCount="indefinite" calcMode="linear" begin="1.75s"
+      <animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" begin="3.5s"
+        path="M462,397 L453,391" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.25" class="spark-trail trail-1 spark-dim">
+      <animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" begin="3.7s"
+        path="M462,397 L453,391" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.18" class="spark-trail trail-2 spark-dim">
+      <animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" begin="3.9s"
+        path="M462,397 L453,391" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.13" class="spark-trail trail-3 spark-dim">
+      <animateMotion dur="7s" repeatCount="indefinite" calcMode="linear" begin="4.1s"
         path="M462,397 L453,391" keyPoints="0;1;0" keyTimes="0;0.5;1" />
     </circle>
 
     {/* SK ↔ UA: 400 kV Mukachevo–V. Kapušany */}
     <circle r="0.5" class="energy-spark" filter="url(#spark-glow)">
-      <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear"
+      <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear"
+        path="M451,400 L460,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.35" class="spark-trail trail-1">
+      <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" begin="0.2s"
+        path="M451,400 L460,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.25" class="spark-trail trail-2">
+      <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" begin="0.4s"
+        path="M451,400 L460,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.18" class="spark-trail trail-3">
+      <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" begin="0.6s"
         path="M451,400 L460,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
     </circle>
     <circle r="0.35" class="energy-spark spark-dim" filter="url(#spark-glow)">
-      <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear" begin="2s"
+      <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" begin="4s"
+        path="M460,399 L451,400" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.25" class="spark-trail trail-1 spark-dim">
+      <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" begin="4.2s"
+        path="M460,399 L451,400" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.18" class="spark-trail trail-2 spark-dim">
+      <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" begin="4.4s"
+        path="M460,399 L451,400" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.13" class="spark-trail trail-3 spark-dim">
+      <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" begin="4.6s"
         path="M460,399 L451,400" keyPoints="0;1;0" keyTimes="0;0.5;1" />
     </circle>
 
     {/* HU ↔ UA: 750 kV Albertirsa–Zakhidnoukrainska */}
     <circle r="0.5" class="energy-spark" filter="url(#spark-glow)">
-      <animateMotion dur="3.2s" repeatCount="indefinite" calcMode="linear"
+      <animateMotion dur="6.4s" repeatCount="indefinite" calcMode="linear"
+        path="M452,403 L461,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.35" class="spark-trail trail-1">
+      <animateMotion dur="6.4s" repeatCount="indefinite" calcMode="linear" begin="0.2s"
+        path="M452,403 L461,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.25" class="spark-trail trail-2">
+      <animateMotion dur="6.4s" repeatCount="indefinite" calcMode="linear" begin="0.4s"
+        path="M452,403 L461,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.18" class="spark-trail trail-3">
+      <animateMotion dur="6.4s" repeatCount="indefinite" calcMode="linear" begin="0.6s"
         path="M452,403 L461,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
     </circle>
     <circle r="0.35" class="energy-spark spark-dim" filter="url(#spark-glow)">
-      <animateMotion dur="3.2s" repeatCount="indefinite" calcMode="linear" begin="1.6s"
+      <animateMotion dur="6.4s" repeatCount="indefinite" calcMode="linear" begin="3.2s"
+        path="M461,399 L452,403" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.25" class="spark-trail trail-1 spark-dim">
+      <animateMotion dur="6.4s" repeatCount="indefinite" calcMode="linear" begin="3.4s"
+        path="M461,399 L452,403" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.18" class="spark-trail trail-2 spark-dim">
+      <animateMotion dur="6.4s" repeatCount="indefinite" calcMode="linear" begin="3.6s"
+        path="M461,399 L452,403" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.13" class="spark-trail trail-3 spark-dim">
+      <animateMotion dur="6.4s" repeatCount="indefinite" calcMode="linear" begin="3.8s"
         path="M461,399 L452,403" keyPoints="0;1;0" keyTimes="0;0.5;1" />
     </circle>
 
     {/* RO ↔ UA: Burshtyn island 220/400 kV */}
     <circle r="0.5" class="energy-spark" filter="url(#spark-glow)">
-      <animateMotion dur="4.5s" repeatCount="indefinite" calcMode="linear"
+      <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear"
+        path="M458,405 L466,398" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.35" class="spark-trail trail-1">
+      <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" begin="0.2s"
+        path="M458,405 L466,398" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.25" class="spark-trail trail-2">
+      <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" begin="0.4s"
+        path="M458,405 L466,398" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.18" class="spark-trail trail-3">
+      <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" begin="0.6s"
         path="M458,405 L466,398" keyPoints="0;1;0" keyTimes="0;0.5;1" />
     </circle>
     <circle r="0.35" class="energy-spark spark-dim" filter="url(#spark-glow)">
-      <animateMotion dur="4.5s" repeatCount="indefinite" calcMode="linear" begin="2.25s"
+      <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" begin="4.5s"
+        path="M466,398 L458,405" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.25" class="spark-trail trail-1 spark-dim">
+      <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" begin="4.7s"
+        path="M466,398 L458,405" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.18" class="spark-trail trail-2 spark-dim">
+      <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" begin="4.9s"
+        path="M466,398 L458,405" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.13" class="spark-trail trail-3 spark-dim">
+      <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" begin="5.1s"
         path="M466,398 L458,405" keyPoints="0;1;0" keyTimes="0;0.5;1" />
     </circle>
   </svg>
@@ -178,6 +275,35 @@
     opacity: 0.5;
   }
 
+  /* Spark trails — fading dotted trail behind each spark */
+  .spark-trail {
+    fill: var(--spark-color);
+  }
+
+  .spark-trail.trail-1 {
+    opacity: 0.45;
+  }
+
+  .spark-trail.trail-2 {
+    opacity: 0.22;
+  }
+
+  .spark-trail.trail-3 {
+    opacity: 0.08;
+  }
+
+  .spark-trail.spark-dim.trail-1 {
+    opacity: 0.3;
+  }
+
+  .spark-trail.spark-dim.trail-2 {
+    opacity: 0.15;
+  }
+
+  .spark-trail.spark-dim.trail-3 {
+    opacity: 0.05;
+  }
+
   /* Animations */
   @media (prefers-reduced-motion: no-preference) {
     .pulse-ring {
@@ -200,9 +326,10 @@
     }
   }
 
-  /* Reduced motion: hide animated sparks */
+  /* Reduced motion: hide animated sparks and trails */
   @media (prefers-reduced-motion: reduce) {
-    .energy-spark {
+    .energy-spark,
+    .spark-trail {
       display: none;
     }
   }

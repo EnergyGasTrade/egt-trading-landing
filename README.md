@@ -1,6 +1,6 @@
-# EGT Trading — Corporate Website
+# EGT trading — Corporate Website
 
-Bilingual (UK/EN) single-page corporate website for EGT Trading, a licensed electricity market participant in Ukraine. Built with Astro 5, Tailwind v4, TypeScript strict mode.
+Bilingual (UK/EN) single-page corporate website for EGT trading, a licensed electricity market participant in Ukraine. Built with Astro 5, Tailwind v4, TypeScript strict mode.
 
 ## Commands
 
@@ -33,8 +33,8 @@ The following tokens appear throughout the i18n dictionaries and components. Rep
 
 | Token | Description | Example format |
 | :--- | :--- | :--- |
-| `[COMPANY_LEGAL_NAME_UK]` | Full legal name in Ukrainian | ТОВ «EGT Trading» |
-| `[COMPANY_LEGAL_NAME_EN]` | Full legal name in English | EGT Trading LLC |
+| `[COMPANY_LEGAL_NAME_UK]` | Full legal name in Ukrainian | ТОВ «EGT trading» |
+| `[COMPANY_LEGAL_NAME_EN]` | Full legal name in English | EGT trading LLC |
 | `[EDRPOU]` | State registry code (EDRPOU/ЄДРПОУ) | 8 digits |
 | `[VAT]` | VAT / IPN number | 12 digits |
 | `[EIC_X]` | EIC X-type code (energy market participant ID, ENTSO-E scheme, issued by Ukrenergo) | 16 characters |
