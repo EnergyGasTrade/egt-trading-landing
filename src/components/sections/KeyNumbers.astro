@@ -26,7 +26,7 @@ const { t } = Astro.props;
 </section>
 
 <script is:inline>
-  (function () {
+  function initCountUp() {
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var elements = document.querySelectorAll('.count-up');
 
@@ -69,5 +69,7 @@ const { t } = Astro.props;
     elements.forEach(function (el) {
       observer.observe(el);
     });
-  })();
+  }
+
+  document.addEventListener('astro:page-load', initCountUp);
 </script>
