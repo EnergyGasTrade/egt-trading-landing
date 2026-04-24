@@ -6,7 +6,8 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://egt-trading.com.ua',
+  site: 'https://energygastrade.github.io',
+  base: '/egt-trading-landing',
   i18n: {
     defaultLocale: 'uk',
     locales: ['uk', 'en'],
