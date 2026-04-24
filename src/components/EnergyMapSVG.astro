@@ -1,96 +1,87 @@
 ---
 /**
- * EnergyMapSVG — stylized schematic of UA ↔ EU energy interconnections.
- * Simplified outlines of Ukraine and neighbor countries with pulsing connection dots.
+ * EnergyMapSVG — realistic country outlines of UA ↔ EU energy interconnections.
+ * Country paths from Natural Earth (public domain) via simple-world-map.
  * Pure CSS animations, theme-reactive via CSS custom properties.
  */
 ---
 
 <div class="energy-map" aria-hidden="true">
-  <svg viewBox="0 0 440 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto max-w-[440px]">
-    {/* Ukraine — center, large simplified outline */}
+  <svg viewBox="434 375 63 43" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+    {/* Poland */}
     <path
-      d="M180 100 L220 85 L270 90 L310 105 L330 120 L340 150 L335 180 L310 200 L280 210 L250 215 L220 220 L190 215 L160 200 L145 175 L150 145 L160 120 Z"
+      d="M457.109,390.184l0.733,1.348l0.174,1.435l-0.604,1.392l-1.383,2.664l-1.167,0.526l-1.514-0.657l-0.908,0.043l-2.204,0.83l-2.506-0.742l-4.062-2.879l-3.978-2.135l-1.6-2.438l-0.303-5.75l3.112-2.705l4.062-1.35l1.328-0.138l0.315,1.007l1.725,0.692l4.766,0.09l1.47-0.043l2.421,3.708l-0.604,1.521l0.259,1.789Z"
+      class="country-neighbor"
+      stroke-width="0.7"
+    />
+    <text x="446" y="388" class="country-label label-sm" text-anchor="middle">PL</text>
+
+    {/* Slovakia */}
+    <path
+      d="M443.607,400.875l0.597,0.527l0.077,0.898l6.596-0.146l4.875-2.102l-0.077-2.135l-0.934,0.415l-1.34-0.718l-0.821-0.035l-2.161,0.865l-2.938-0.709Z"
+      class="country-neighbor"
+      stroke-width="0.7"
+    />
+    <text x="449" y="400.5" class="country-label label-xs" text-anchor="middle">SK</text>
+
+    {/* Hungary */}
+    <path
+      d="M444.386,403.01l-1.003,1.573l0.078,2.403l1.599,0.82l4.919,0.147l6.854-5.774l0.034-1.279l-0.742-0.371l-4.953,2.248Z"
+      class="country-neighbor"
+      stroke-width="0.7"
+    />
+    <text x="448" y="405.5" class="country-label label-xs" text-anchor="middle">HU</text>
+
+    {/* Romania */}
+    <path
+      d="M457.731,401.281l-0.226,1.279l-5.005,4.166l4.184,6.137l2.682,1.877h4.823l1.591-1.331l2.135-0.276l1.591,0.959l2.818-3.207l-0.545-1.607l-2.861-0.734l-1.953-0.095l0.094-2.749l-2.593-4.08Z"
+      class="country-neighbor"
+      stroke-width="0.7"
+    />
+    <text x="459" y="410" class="country-label label-sm" text-anchor="middle">RO</text>
+
+    {/* Ukraine — main, accent fill */}
+    <path
+      d="M460.662,388.791l-2.507,1.409l0.622,2.663l-2.316,4.884l0.02,2.151l1.089,0.691l6.983,0.346l1.954-1.615l2.092,0.699l2.999,4.002l-2.194,3.942l2.61,0.761l3.414-3.933l1.954,0.354l1.815,1.262l-1.601,2.109l2.161,3.371h2.299l1.185-2.248l2.438-0.494l0.069-1.823l-4.529-0.7l0.14-1.963h4.391l4.737-3.794l2.092-1.824l0.345-5.757l-9.336-0.838l-3.829-5.402l-2.646-0.908l-3.207,0.139l-1.443,3.569l-6.57,0.087l-2.135-0.986Z"
       class="country-ua"
-      stroke-width="1.5"
+      stroke-width="0.8"
     />
-    <text x="235" y="160" class="country-label label-ua" text-anchor="middle">UA</text>
+    <text x="472" y="398" class="country-label label-ua" text-anchor="middle">UA</text>
 
-    {/* Poland — top-left */}
-    <path
-      d="M100 50 L140 40 L165 50 L170 75 L155 90 L130 95 L105 85 L95 70 Z"
-      class="country-neighbor"
-      stroke-width="1"
-    />
-    <text x="132" y="72" class="country-label label-sm" text-anchor="middle">PL</text>
+    {/* Connection lines — dashed, at border crossing corridors */}
+    <line x1="453" y1="388" x2="463" y2="390" class="connection-line" />
+    <line x1="452" y1="399" x2="460" y2="397" class="connection-line" />
+    <line x1="453" y1="403" x2="461" y2="400" class="connection-line" />
+    <line x1="458" y1="407" x2="464" y2="403" class="connection-line" />
 
-    {/* Slovakia — left-center */}
-    <path
-      d="M95 100 L130 95 L155 100 L158 115 L145 125 L115 125 L95 115 Z"
-      class="country-neighbor"
-      stroke-width="1"
-    />
-    <text x="128" y="114" class="country-label label-sm" text-anchor="middle">SK</text>
+    {/* Pulsing dots at border crossings */}
+    {/* PL ↔ UA: Zamość–Dobrotvir */}
+    <circle cx="458" cy="389" r="0.8" class="pulse-dot dot-1" />
+    <circle cx="458" cy="389" r="0.8" class="pulse-ring dot-1" />
 
-    {/* Hungary — bottom-left */}
-    <path
-      d="M85 130 L115 125 L140 130 L150 150 L145 170 L125 180 L100 175 L85 155 Z"
-      class="country-neighbor"
-      stroke-width="1"
-    />
-    <text x="118" y="156" class="country-label label-sm" text-anchor="middle">HU</text>
+    {/* SK ↔ UA: Veľké Kapušany–Mukachevo */}
+    <circle cx="456" cy="398" r="0.8" class="pulse-dot dot-2" />
+    <circle cx="456" cy="398" r="0.8" class="pulse-ring dot-2" />
 
-    {/* Romania — bottom */}
-    <path
-      d="M155 200 L185 215 L210 225 L230 240 L215 260 L185 265 L155 255 L140 235 L140 215 Z"
-      class="country-neighbor"
-      stroke-width="1"
-    />
-    <text x="186" y="244" class="country-label label-sm" text-anchor="middle">RO</text>
+    {/* HU ↔ UA: Záhony–Mukachevo */}
+    <circle cx="457" cy="401.5" r="0.8" class="pulse-dot dot-3" />
+    <circle cx="457" cy="401.5" r="0.8" class="pulse-ring dot-3" />
 
-    {/* Moldova — right */}
-    <path
-      d="M310 130 L335 125 L350 140 L350 170 L340 185 L320 185 L310 170 Z"
-      class="country-neighbor"
-      stroke-width="1"
-    />
-    <text x="330" y="160" class="country-label label-sm" text-anchor="middle">MD</text>
+    {/* RO ↔ UA: Siret–Chernivtsi */}
+    <circle cx="461" cy="405" r="0.8" class="pulse-dot dot-4" />
+    <circle cx="461" cy="405" r="0.8" class="pulse-ring dot-4" />
 
-    {/* Connection lines */}
-    <line x1="155" y1="90" x2="170" y2="105" class="connection-line" />
-    <line x1="145" y1="120" x2="158" y2="125" class="connection-line" />
-    <line x1="145" y1="165" x2="155" y2="175" class="connection-line" />
-    <line x1="190" y1="215" x2="185" y2="225" class="connection-line" />
-    <line x1="310" y1="155" x2="330" y2="150" class="connection-line" />
-
-    {/* Pulsing dots at interconnection points */}
-    <circle cx="162" cy="97" r="4" class="pulse-dot dot-1" />
-    <circle cx="162" cy="97" r="4" class="pulse-ring dot-1" />
-
-    <circle cx="151" cy="122" r="4" class="pulse-dot dot-2" />
-    <circle cx="151" cy="122" r="4" class="pulse-ring dot-2" />
-
-    <circle cx="150" cy="170" r="4" class="pulse-dot dot-3" />
-    <circle cx="150" cy="170" r="4" class="pulse-ring dot-3" />
-
-    <circle cx="187" cy="220" r="4" class="pulse-dot dot-4" />
-    <circle cx="187" cy="220" r="4" class="pulse-ring dot-4" />
-
-    <circle cx="320" cy="152" r="4" class="pulse-dot dot-5" />
-    <circle cx="320" cy="152" r="4" class="pulse-ring dot-5" />
-
-    {/* Energy flow arrows along connections */}
-    <circle cx="164" cy="100" r="2" class="flow-particle flow-1" />
-    <circle cx="148" cy="125" r="2" class="flow-particle flow-2" />
-    <circle cx="152" cy="173" r="2" class="flow-particle flow-3" />
-    <circle cx="188" cy="218" r="2" class="flow-particle flow-4" />
-    <circle cx="315" cy="153" r="2" class="flow-particle flow-5" />
+    {/* Energy flow particles */}
+    <circle cx="456" cy="388.5" r="0.5" class="flow-particle flow-1" />
+    <circle cx="454" cy="398.5" r="0.5" class="flow-particle flow-2" />
+    <circle cx="455" cy="402" r="0.5" class="flow-particle flow-3" />
+    <circle cx="459.5" cy="406" r="0.5" class="flow-particle flow-4" />
   </svg>
 </div>
 
 <style>
   .energy-map {
-    opacity: 0.85;
+    opacity: 0.9;
   }
 
   /* Country fills */
@@ -101,7 +92,7 @@
 
   .country-neighbor {
     fill: var(--color-bg-secondary);
-    stroke: var(--color-border);
+    stroke: var(--color-border-hover);
   }
 
   /* Labels */
@@ -109,23 +100,28 @@
     font-family: var(--font-display);
     font-weight: 700;
     fill: var(--color-text-muted);
+    pointer-events: none;
   }
 
   .label-ua {
-    font-size: 16px;
+    font-size: 3px;
     fill: var(--color-accent);
   }
 
   .label-sm {
-    font-size: 11px;
+    font-size: 2.2px;
+  }
+
+  .label-xs {
+    font-size: 1.8px;
   }
 
   /* Connection lines */
   .connection-line {
     stroke: var(--color-accent);
-    stroke-width: 1.5;
-    stroke-dasharray: 4 3;
-    opacity: 0.4;
+    stroke-width: 0.35;
+    stroke-dasharray: 1 0.6;
+    opacity: 0.5;
   }
 
   /* Pulsing dots at border crossings */
@@ -136,7 +132,7 @@
   .pulse-ring {
     fill: none;
     stroke: var(--color-accent);
-    stroke-width: 1.5;
+    stroke-width: 0.3;
     opacity: 0;
   }
 
@@ -152,34 +148,32 @@
       animation: pulseRing 2.5s ease-out infinite;
     }
 
-    .dot-2 .pulse-ring, .pulse-ring.dot-2 { animation-delay: 0.5s; }
-    .dot-3 .pulse-ring, .pulse-ring.dot-3 { animation-delay: 1.0s; }
-    .dot-4 .pulse-ring, .pulse-ring.dot-4 { animation-delay: 1.5s; }
-    .dot-5 .pulse-ring, .pulse-ring.dot-5 { animation-delay: 2.0s; }
+    .pulse-ring.dot-2 { animation-delay: 0.6s; }
+    .pulse-ring.dot-3 { animation-delay: 1.2s; }
+    .pulse-ring.dot-4 { animation-delay: 1.8s; }
 
     .flow-particle {
       animation: flowPulse 3s ease-in-out infinite;
     }
 
-    .flow-2 { animation-delay: 0.6s; }
-    .flow-3 { animation-delay: 1.2s; }
-    .flow-4 { animation-delay: 1.8s; }
-    .flow-5 { animation-delay: 2.4s; }
+    .flow-2 { animation-delay: 0.7s; }
+    .flow-3 { animation-delay: 1.4s; }
+    .flow-4 { animation-delay: 2.1s; }
 
     @keyframes pulseRing {
       0% {
-        r: 4;
-        opacity: 0.6;
+        r: 0.8;
+        opacity: 0.7;
       }
       100% {
-        r: 14;
+        r: 3;
         opacity: 0;
       }
     }
 
     @keyframes flowPulse {
       0%, 100% { opacity: 0; }
-      50% { opacity: 0.8; }
+      50% { opacity: 0.9; }
     }
   }
 </style>
