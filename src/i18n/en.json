@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "EGT trading — electricity import, export & trading",
-    "description": "Licensed participant of Ukraine's electricity market. Import, export, supply, and trading of electric energy across UA and EU markets."
+    "title": "EGT trading — electricity & natural gas import, export & trading",
+    "description": "Licensed participant of Ukraine's electricity and natural gas markets. Import, export, supply, and trading of electric energy and natural gas across UA and EU markets."
   },
   "nav": {
     "about": "About",
@@ -16,16 +16,16 @@
   },
   "hero": {
     "title": "EGT trading",
-    "tagline": "Electricity without borders",
-    "description": "Licensed wholesale electricity market participant. Import, export, supply, and trading across Ukraine and European Union markets.",
+    "tagline": "Energy without borders",
+    "description": "Licensed wholesale electricity and natural gas market participant. Import, export, supply, and trading across Ukraine and European Union markets.",
     "scrollHint": "Scroll down"
   },
   "about": {
     "sectionLabel": "About us",
     "title": "New company. Proven expertise.",
-    "p1": "EGT trading is a licensed participant of Ukraine's electricity market, founded by a team with over 15 years of combined experience in the energy sector.",
-    "p2": "We specialize in cross-border electricity trading, providing efficient solutions for import and export between the Ukrainian and European energy systems.",
-    "p3": "Deep understanding of NEURC regulatory requirements, day-ahead and intraday market mechanisms, and ENTSO-E operational specifics form the foundation of our daily operations."
+    "p1": "EGT trading is a licensed participant of Ukraine's electricity and natural gas markets, founded by a team with over 15 years of combined experience in the energy sector.",
+    "p2": "We specialize in cross-border electricity and natural gas trading, providing efficient solutions for import and export between the Ukrainian and European energy systems.",
+    "p3": "Deep understanding of NEURC regulatory requirements, day-ahead and intraday market mechanisms, ENTSO-E operational specifics, as well as gas transmission systems and virtual trading points form the foundation of our daily operations."
   },
   "numbers": {
     "sectionLabel": "Key figures",
@@ -43,7 +43,7 @@
       {
         "icon": "lucide:zap",
         "title": "Import",
-        "description": "Procurement of electricity on European markets and supply into Ukraine's unified energy system through certified interconnections."
+        "description": "Procurement of electricity and natural gas on European markets and supply into Ukraine's energy system through certified interconnections and entry points."
       },
       {
         "icon": "lucide:arrow-right-left",
@@ -53,12 +53,12 @@
       {
         "icon": "lucide:truck",
         "title": "Supply",
-        "description": "Supply of electric energy to consumers within Ukraine under a NEURC license on direct contract terms."
+        "description": "Supply of electric energy and natural gas to consumers within Ukraine under NEURC licenses on direct contract terms."
       },
       {
         "icon": "lucide:trending-up",
         "title": "Trading",
-        "description": "Electricity trading on day-ahead, intraday, and balancing markets with integrated risk management."
+        "description": "Electricity and natural gas trading on day-ahead, intraday, balancing, and exchange markets with integrated risk management."
       }
     ]
   },
