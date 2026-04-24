@@ -1,0 +1,155 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Locale, Dictionary } from '../i18n/useTranslations';
+import { getAlternateUrl } from '../i18n/useTranslations';
+
+interface Props {
+  locale: Locale;
+  t: Dictionary;
+}
+
+const { locale, t } = Astro.props;
+const langSwitchUrl = getAlternateUrl(Astro.url, locale === 'uk' ? 'en' : 'uk');
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 border-b border-border transition-colors duration-200"
+  id="site-header"
+>
+  <div class="bg-bg-header backdrop-blur-xl">
+    <div class="mx-auto max-w-[var(--content-max)] px-6 flex items-center justify-between h-16">
+      {/* Logo */}
+      <a
+        href={locale === 'uk' ? '/' : '/en/'}
+        class="text-text font-display text-xl font-bold tracking-tight hover:text-accent transition-colors"
+        aria-label="EGT Trading — home"
+      >
+        EGT<span class="text-accent ml-0.5">Trading</span>
+      </a>
+
+      {/* Desktop nav */}
+      <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+        <a href="#about" class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
+          {t.nav.about}
+        </a>
+        <a href="#services" class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
+          {t.nav.services}
+        </a>
+        <a href="#contacts" class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
+          {t.nav.contacts}
+        </a>
+      </nav>
+
+      {/* Controls */}
+      <div class="flex items-center gap-3">
+        {/* Language switch */}
+        <a
+          href={langSwitchUrl}
+          class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] text-sm font-semibold text-text-secondary hover:text-text transition-colors rounded-lg hover:bg-bg-secondary"
+          aria-label={t.nav.langLabel}
+          data-astro-prefetch
+        >
+          {t.nav.langSwitch}
+        </a>
+
+        {/* Theme toggle */}
+        <button
+          type="button"
+          id="theme-toggle"
+          class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] text-text-secondary hover:text-text transition-colors rounded-lg hover:bg-bg-secondary"
+          aria-label={t.nav.themeToggle}
+        >
+          <Icon name="lucide:sun" class="w-5 h-5 hidden" id="icon-sun" />
+          <Icon name="lucide:moon" class="w-5 h-5 hidden" id="icon-moon" />
+        </button>
+
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          class="md:hidden inline-flex items-center justify-center min-w-[44px] min-h-[44px] text-text-secondary hover:text-text transition-colors rounded-lg"
+          aria-label={t.nav.menuOpen}
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <Icon name="lucide:menu" class="w-5 h-5" id="icon-menu-open" />
+          <Icon name="lucide:x" class="w-5 h-5 hidden" id="icon-menu-close" />
+        </button>
+      </div>
+    </div>
+
+    {/* Mobile menu */}
+    <nav
+      id="mobile-menu"
+      class="md:hidden hidden border-t border-border"
+      aria-label="Mobile navigation"
+    >
+      <div class="px-6 py-4 flex flex-col gap-4">
+        <a href="#about" class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
+          {t.nav.about}
+        </a>
+        <a href="#services" class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
+          {t.nav.services}
+        </a>
+        <a href="#contacts" class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
+          {t.nav.contacts}
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  // Theme toggle
+  (function () {
+    const toggle = document.getElementById('theme-toggle');
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+
+    function updateIcons() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (iconSun && iconMoon) {
+        iconSun.classList.toggle('hidden', isDark);
+        iconMoon.classList.toggle('hidden', !isDark);
+      }
+    }
+
+    updateIcons();
+
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateIcons();
+      });
+    }
+
+    // Mobile menu
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-menu-open');
+    const iconClose = document.getElementById('icon-menu-close');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function () {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        if (iconOpen) iconOpen.classList.toggle('hidden');
+        if (iconClose) iconClose.classList.toggle('hidden');
+      });
+
+      // Close on anchor click
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          if (iconOpen) iconOpen.classList.remove('hidden');
+          if (iconClose) iconClose.classList.add('hidden');
+        });
+      });
+    }
+  })();
+</script>

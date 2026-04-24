@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Dictionary } from '../../i18n/useTranslations';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden" aria-label={t.hero.tagline}>
+  {/* SVG grid background — reduced-motion aware */}
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" stroke-width="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+  </div>
+
+  {/* Accent glow — top-right */}
+  <div
+    class="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-[0.06] blur-[120px] pointer-events-none"
+    style="background: var(--color-accent);"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative mx-auto max-w-[var(--content-max)] px-6 py-32 text-center">
+    <h1 class="text-display text-text">
+      {t.hero.title}
+    </h1>
+
+    <p class="mt-6 text-heading-2 text-accent font-semibold tracking-tight">
+      {t.hero.tagline}
+    </p>
+
+    <p class="mt-6 text-body-lg text-text-secondary max-w-[var(--measure)] mx-auto">
+      {t.hero.description}
+    </p>
+
+    {/* Scroll indicator */}
+    <div class="mt-16 flex flex-col items-center gap-2" aria-hidden="true">
+      <span class="text-xs text-text-muted uppercase tracking-widest">{t.hero.scrollHint}</span>
+      <div class="scroll-indicator">
+        <Icon name="lucide:chevron-down" class="w-5 h-5 text-text-muted" />
+      </div>
+    </div>
+  </div>
+</section>

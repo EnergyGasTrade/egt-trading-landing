@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations } from '../../i18n/useTranslations';
+
+const locale = 'en';
+const t = useTranslations(locale);
+---
+
+<Base title={`${t.privacy.title} — EGT Trading`} description={t.privacy.metaDescription} locale={locale}>
+  <Header locale={locale} t={t} />
+  <main id="main-content" class="pt-28 pb-24">
+    <article class="mx-auto max-w-[var(--measure)] px-6">
+      <h1 class="text-heading-1 text-text mb-8">{t.privacy.title}</h1>
+
+      <p class="text-body-lg text-text-secondary mb-8">{t.privacy.intro}</p>
+
+      <section class="mb-8">
+        <h2 class="text-heading-3 text-text mb-3">{t.privacy.section1Title}</h2>
+        <p class="text-body text-text-secondary">{t.privacy.section1Text}</p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-heading-3 text-text mb-3">{t.privacy.section2Title}</h2>
+        <p class="text-body text-text-secondary">{t.privacy.section2Text}</p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-heading-3 text-text mb-3">{t.privacy.section3Title}</h2>
+        <p class="text-body text-text-secondary">{t.privacy.section3Text}</p>
+      </section>
+
+      <section>
+        <h2 class="text-heading-3 text-text mb-3">{t.privacy.section4Title}</h2>
+        <p class="text-body text-text-secondary">{t.privacy.section4Text}</p>
+      </section>
+    </article>
+  </main>
+  <Footer locale={locale} t={t} />
+</Base>

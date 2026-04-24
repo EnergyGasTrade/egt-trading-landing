@@ -1,0 +1,118 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Dictionary } from '../../i18n/useTranslations';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="contacts" class="section-reveal py-24 md:py-32 bg-bg-secondary" aria-labelledby="contacts-heading">
+  <div class="mx-auto max-w-[var(--content-max)] px-6">
+    <span class="text-xs font-semibold uppercase tracking-widest text-accent">{t.contacts.sectionLabel}</span>
+    <h2 id="contacts-heading" class="text-heading-1 text-text mt-4 mb-12">
+      {t.contacts.title}
+    </h2>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      {/* Contact details */}
+      <div class="space-y-8">
+        <div class="flex items-start gap-4">
+          <div class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent">
+            <Icon name="lucide:map-pin" class="w-5 h-5" />
+          </div>
+          <div>
+            <dt class="text-caption text-text-muted text-xs uppercase tracking-wider mb-1">{t.contacts.address}</dt>
+            <dd class="text-body text-text">{t.contacts.addressValue}</dd>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent">
+            <Icon name="lucide:phone" class="w-5 h-5" />
+          </div>
+          <div>
+            <dt class="text-caption text-text-muted text-xs uppercase tracking-wider mb-1">{t.contacts.phone}</dt>
+            <dd>
+              <a
+                href={`tel:${t.contacts.phoneValue}`}
+                class="text-body text-text hover:text-accent transition-colors"
+              >
+                {t.contacts.phoneValue}
+              </a>
+            </dd>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent">
+            <Icon name="lucide:mail" class="w-5 h-5" />
+          </div>
+          <div>
+            <dt class="text-caption text-text-muted text-xs uppercase tracking-wider mb-1">{t.contacts.email}</dt>
+            <dd>
+              <a
+                href={`mailto:${t.contacts.emailValue}`}
+                class="text-body text-text hover:text-accent transition-colors"
+              >
+                {t.contacts.emailValue}
+              </a>
+            </dd>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent">
+            <Icon name="lucide:clock" class="w-5 h-5" />
+          </div>
+          <div>
+            <dt class="text-caption text-text-muted text-xs uppercase tracking-wider mb-1">{t.contacts.hours}</dt>
+            <dd class="text-body text-text">{t.contacts.hoursValue}</dd>
+          </div>
+        </div>
+      </div>
+
+      {/* Map */}
+      <div class="rounded-xl overflow-hidden border border-border bg-bg-card min-h-[320px]">
+        <iframe
+          src="[MAP_EMBED_URL]"
+          width="100%"
+          height="100%"
+          style="border:0; min-height: 320px;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={t.contacts.mapTitle}
+          class="w-full h-full"
+        ></iframe>
+      </div>
+    </div>
+
+    {/* Compact legal strip */}
+    <div class="mt-12 pt-8 border-t border-border">
+      <dl class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-text-muted">
+        <div class="flex gap-1.5">
+          <dt>{t.legal.edrpouLabel}:</dt>
+          <dd class="text-text-secondary">{t.legal.edrpou}</dd>
+        </div>
+        <div class="flex gap-1.5">
+          <dt>{t.legal.vatLabel}:</dt>
+          <dd class="text-text-secondary">{t.legal.vat}</dd>
+        </div>
+        <div class="flex gap-1.5">
+          <dt>{t.legal.eicLabel}:</dt>
+          <dd class="text-text-secondary">{t.legal.eic}</dd>
+        </div>
+        <div class="flex gap-1.5">
+          <dt>{t.legal.ecrbLabel}:</dt>
+          <dd class="text-text-secondary">{t.legal.ecrb}</dd>
+        </div>
+        <div class="flex gap-1.5">
+          <dt>{t.legal.licenseLabel}:</dt>
+          <dd class="text-text-secondary">{t.legal.license}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations } from '../i18n/useTranslations';
+
+const locale = 'uk';
+const t = useTranslations(locale);
+---
+
+<Base title={t.notFound.title} description={t.notFound.text} locale={locale}>
+  <Header locale={locale} t={t} />
+  <main id="main-content" class="flex-1 flex items-center justify-center py-32">
+    <div class="text-center px-6">
+      <p class="text-display text-accent opacity-20 select-none" aria-hidden="true">{t.notFound.heading}</p>
+      <p class="mt-4 text-body-lg text-text-secondary max-w-md mx-auto">{t.notFound.text}</p>
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 mt-8 px-6 py-3 text-sm font-semibold text-text-inverse bg-accent hover:bg-accent-hover rounded-lg transition-colors min-h-[44px]"
+      >
+        {t.notFound.back}
+      </a>
+    </div>
+  </main>
+  <Footer locale={locale} t={t} />
+</Base>

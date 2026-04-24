@@ -1,0 +1,77 @@
+---
+import type { Locale, Dictionary } from '../i18n/useTranslations';
+
+interface Props {
+  locale: Locale;
+  t: Dictionary;
+}
+
+const { locale, t } = Astro.props;
+const year = new Date().getFullYear();
+const privacyUrl = locale === 'uk' ? '/privacy/' : '/en/privacy/';
+---
+
+<footer class="border-t border-border bg-bg-secondary mt-auto">
+  <div class="mx-auto max-w-[var(--content-max)] px-6 py-12">
+    {/* Company info */}
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-8">
+      <div>
+        <p class="font-display text-lg font-bold text-text tracking-tight">
+          EGT<span class="text-accent ml-0.5">Trading</span>
+        </p>
+        <p class="text-caption mt-1">{t.legal.companyName}</p>
+      </div>
+      <div class="text-caption space-y-1 md:text-right">
+        <p>{t.legal.address}</p>
+        <p>
+          <a href={`tel:${t.contacts.phoneValue}`} class="hover:text-text transition-colors">
+            {t.contacts.phoneValue}
+          </a>
+        </p>
+        <p>
+          <a href={`mailto:${t.contacts.emailValue}`} class="hover:text-text transition-colors">
+            {t.contacts.emailValue}
+          </a>
+        </p>
+      </div>
+    </div>
+
+    {/* Legal identifiers */}
+    <div class="border-t border-border pt-6 mb-6">
+      <dl class="flex flex-wrap gap-x-8 gap-y-2 text-caption text-xs">
+        <div class="flex gap-1.5">
+          <dt class="text-text-muted">{t.legal.edrpouLabel}:</dt>
+          <dd>{t.legal.edrpou}</dd>
+        </div>
+        <div class="flex gap-1.5">
+          <dt class="text-text-muted">{t.legal.vatLabel}:</dt>
+          <dd>{t.legal.vat}</dd>
+        </div>
+        <div class="flex gap-1.5">
+          <dt class="text-text-muted">{t.legal.eicLabel}:</dt>
+          <dd>{t.legal.eic}</dd>
+        </div>
+        <div class="flex gap-1.5">
+          <dt class="text-text-muted">{t.legal.ecrbLabel}:</dt>
+          <dd>{t.legal.ecrb}</dd>
+        </div>
+        <div class="flex gap-1.5">
+          <dt class="text-text-muted">{t.legal.licenseLabel}:</dt>
+          <dd>{t.legal.license}</dd>
+        </div>
+      </dl>
+    </div>
+
+    {/* Bottom bar */}
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-text-muted">
+      <p>&copy; {year} {t.legal.companyName}. {t.footer.rights}</p>
+      <a
+        href={privacyUrl}
+        class="hover:text-text transition-colors"
+        data-astro-prefetch
+      >
+        {t.footer.privacy}
+      </a>
+    </div>
+  </div>
+</footer>

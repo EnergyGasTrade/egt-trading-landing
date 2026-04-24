@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "title": "EGT Trading — electricity import, export & trading",
+    "description": "Licensed participant of Ukraine's electricity market. Import, export, supply, and trading of electric energy across UA and EU markets."
+  },
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "contacts": "Contacts",
+    "langSwitch": "UK",
+    "langLabel": "Переключити на українську",
+    "themeToggle": "Toggle theme",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "skipToContent": "Skip to main content"
+  },
+  "hero": {
+    "title": "EGT Trading",
+    "tagline": "Electricity without borders",
+    "description": "Licensed wholesale electricity market participant. Import, export, supply, and trading across Ukraine and European Union markets.",
+    "scrollHint": "Scroll down"
+  },
+  "about": {
+    "sectionLabel": "About us",
+    "title": "New company. Proven expertise.",
+    "p1": "EGT Trading is a licensed participant of Ukraine's electricity market, founded by a team with over 15 years of combined experience in the energy sector.",
+    "p2": "We specialize in cross-border electricity trading, providing efficient solutions for import and export between the Ukrainian and European energy systems.",
+    "p3": "Deep understanding of NEURC regulatory requirements, day-ahead and intraday market mechanisms, and ENTSO-E operational specifics form the foundation of our daily operations."
+  },
+  "numbers": {
+    "sectionLabel": "Key figures",
+    "items": [
+      { "value": 15, "suffix": "+", "label": "years of team experience" },
+      { "value": 2, "suffix": "", "label": "markets: UA + EU" },
+      { "value": 24, "suffix": "/7", "label": "trading desk" },
+      { "value": 365, "suffix": "", "label": "days a year" }
+    ]
+  },
+  "services": {
+    "sectionLabel": "Services",
+    "title": "Business lines",
+    "items": [
+      {
+        "icon": "lucide:zap",
+        "title": "Import",
+        "description": "Procurement of electricity on European markets and supply into Ukraine's unified energy system through certified interconnections."
+      },
+      {
+        "icon": "lucide:arrow-right-left",
+        "title": "Export",
+        "description": "Sale of electricity from Ukraine to EU markets in full compliance with regulatory requirements and capacity allocation procedures."
+      },
+      {
+        "icon": "lucide:truck",
+        "title": "Supply",
+        "description": "Supply of electric energy to consumers within Ukraine under a NEURC license on direct contract terms."
+      },
+      {
+        "icon": "lucide:trending-up",
+        "title": "Trading",
+        "description": "Electricity trading on day-ahead, intraday, and balancing markets with integrated risk management."
+      }
+    ]
+  },
+  "contacts": {
+    "sectionLabel": "Contacts",
+    "title": "Get in touch",
+    "address": "Address",
+    "addressValue": "[OFFICE_ADDRESS_EN]",
+    "phone": "Phone",
+    "phoneValue": "[PHONE]",
+    "email": "Email",
+    "emailValue": "[EMAIL]",
+    "hours": "Working hours",
+    "hoursValue": "Mon — Fri: 09:00 — 18:00",
+    "mapTitle": "Office location on map"
+  },
+  "legal": {
+    "companyName": "[COMPANY_LEGAL_NAME_EN]",
+    "edrpou": "[EDRPOU]",
+    "vat": "[VAT]",
+    "eic": "[EIC_X]",
+    "ecrb": "[ECRB]",
+    "license": "[NEURC_LICENSE]",
+    "address": "[LEGAL_ADDRESS_EN]",
+    "director": "[DIRECTOR_NAME_EN]",
+    "edrpouLabel": "EDRPOU",
+    "vatLabel": "Tax ID",
+    "eicLabel": "EIC code",
+    "ecrbLabel": "WEM participant code",
+    "licenseLabel": "NEURC license"
+  },
+  "footer": {
+    "privacy": "Privacy policy",
+    "rights": "All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "metaDescription": "EGT Trading privacy policy — personal data processing.",
+    "intro": "This privacy policy describes how EGT Trading collects, uses, and protects your personal information.",
+    "section1Title": "Information collection",
+    "section1Text": "We collect the minimum information necessary to operate our website. Currently, we do not use cookies for tracking or analytics.",
+    "section2Title": "Use of information",
+    "section2Text": "Contact information you provide via phone or email is used solely to process your inquiries and communicate regarding our services.",
+    "section3Title": "Data protection",
+    "section3Text": "We implement technical and organizational measures to protect your personal information in accordance with applicable Ukrainian legislation.",
+    "section4Title": "Contact",
+    "section4Text": "For questions regarding personal data processing, please contact us at: [EMAIL]"
+  },
+  "notFound": {
+    "title": "404 — Page not found",
+    "heading": "404",
+    "text": "The page you are looking for does not exist or has been moved.",
+    "back": "Back to home"
+  }
+}
