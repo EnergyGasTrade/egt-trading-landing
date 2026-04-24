@@ -43,11 +43,11 @@ const { t } = Astro.props;
     </p>
 
     {/* Scroll indicator */}
-    <div class="mt-16 flex flex-col items-center gap-2" aria-hidden="true">
-      <span class="text-xs text-text-muted uppercase tracking-widest">{t.hero.scrollHint}</span>
-      <div class="scroll-indicator">
-        <Icon name="lucide:chevron-down" class="w-5 h-5 text-text-muted" />
+    <a href="#about" class="mt-16 flex flex-col items-center gap-2 group cursor-pointer no-underline" aria-label={t.hero.scrollHint}>
+      <span class="text-xs text-text-muted uppercase tracking-widest group-hover:text-accent transition-colors">{t.hero.scrollHint}</span>
+      <div class="scroll-indicator group-hover:text-accent transition-colors">
+        <Icon name="lucide:chevron-down" class="w-5 h-5" />
       </div>
-    </div>
+    </a>
   </div>
 </section>
