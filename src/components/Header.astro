@@ -31,13 +31,13 @@ const langSwitchUrl = getAlternateUrl(Astro.url, locale === 'uk' ? 'en' : 'uk');
 
       {/* Desktop nav */}
       <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
-        <a href="#about" class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
+        <a href={`${homeUrl}#about`} class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
           {t.nav.about}
         </a>
-        <a href="#services" class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
+        <a href={`${homeUrl}#services`} class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
           {t.nav.services}
         </a>
-        <a href="#contacts" class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
+        <a href={`${homeUrl}#contacts`} class="nav-link text-sm font-medium text-text-secondary hover:text-text transition-colors">
           {t.nav.contacts}
         </a>
       </nav>
@@ -87,13 +87,13 @@ const langSwitchUrl = getAlternateUrl(Astro.url, locale === 'uk' ? 'en' : 'uk');
       aria-label="Mobile navigation"
     >
       <div class="px-6 py-4 flex flex-col gap-4">
-        <a href="#about" class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
+        <a href={`${homeUrl}#about`} class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
           {t.nav.about}
         </a>
-        <a href="#services" class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
+        <a href={`${homeUrl}#services`} class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
           {t.nav.services}
         </a>
-        <a href="#contacts" class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
+        <a href={`${homeUrl}#contacts`} class="mobile-nav-link text-base font-medium text-text-secondary hover:text-text transition-colors py-2">
           {t.nav.contacts}
         </a>
       </div>
