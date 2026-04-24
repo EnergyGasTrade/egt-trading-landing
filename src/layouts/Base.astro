@@ -26,6 +26,12 @@ const alternateEn = `${siteUrl}${getAlternateUrl(currentUrl, 'en')}`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    {/* Critical inline CSS — prevents flash before external stylesheet loads */}
+    <style is:inline>
+      :root { background-color: #FAFAFA; color: #0F0F0F; }
+      [data-theme="dark"] { background-color: #0A0A0A; color: #E8E8E8; }
+    </style>
+
     {/* Theme script — MUST run before any render to prevent FOUC */}
     <script is:inline>
       (function () {
