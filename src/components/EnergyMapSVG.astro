@@ -58,12 +58,6 @@
     />
     <text x="472" y="398" class="country-label label-ua" text-anchor="middle">UA</text>
 
-    {/* Subtle guide lines — thin traces showing interconnector routes */}
-    <line x1="453" y1="391" x2="462" y2="397" class="guide-line" />
-    <line x1="451" y1="400" x2="460" y2="399" class="guide-line" />
-    <line x1="452" y1="403" x2="461" y2="399" class="guide-line" />
-    <line x1="458" y1="405" x2="466" y2="398" class="guide-line" />
-
     {/* Pulsing dots — positioned exactly at SVG border contact midpoints */}
     <circle cx="457.7" cy="394.5" r="0.8" class="pulse-dot dot-1" />
     <circle cx="457.7" cy="394.5" r="0.8" class="pulse-ring dot-1" />
@@ -154,28 +148,29 @@
     font-size: 1.8px;
   }
 
-  /* Subtle guide lines — thin traces for interconnector routes */
-  .guide-line {
-    stroke: var(--color-accent);
-    stroke-width: 0.2;
-    opacity: 0.15;
+  /* Interconnector energy color — warm tone to contrast with blue borders */
+  .energy-map {
+    --spark-color: #D97706;
   }
 
-  /* Pulsing dots at border crossings */
+  [data-theme="dark"] .energy-map {
+    --spark-color: #FBBF24;
+  }
+
   .pulse-dot {
-    fill: var(--color-accent);
+    fill: var(--spark-color);
   }
 
   .pulse-ring {
     fill: none;
-    stroke: var(--color-accent);
+    stroke: var(--spark-color);
     stroke-width: 0.3;
     opacity: 0;
   }
 
   /* Energy sparks — animated glowing dots */
   .energy-spark {
-    fill: var(--color-accent);
+    fill: var(--spark-color);
     opacity: 0.9;
   }
 
