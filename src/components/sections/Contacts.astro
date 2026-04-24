@@ -18,8 +18,8 @@ const { t } = Astro.props;
 
     <div class="grid lg:grid-cols-2 gap-12">
 		{/* Contact details */}
-      <div class="space-y-8">
-        <div class="flex items-start gap-4">
+      <div class="space-y-4">
+        <div class="flex items-start gap-4 rounded-lg bg-bg-card border border-border p-4">
           <div class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent">
             <Icon name="lucide:map-pin" class="w-5 h-5"/>
           </div>
@@ -29,7 +29,7 @@ const { t } = Astro.props;
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-4 rounded-lg bg-bg-card border border-border p-4">
           <div class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent">
             <Icon name="lucide:phone" class="w-5 h-5"/>
           </div>
@@ -46,7 +46,7 @@ const { t } = Astro.props;
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-4 rounded-lg bg-bg-card border border-border p-4">
           <div class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent">
             <Icon name="lucide:mail" class="w-5 h-5"/>
           </div>
@@ -63,7 +63,7 @@ const { t } = Astro.props;
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-4 rounded-lg bg-bg-card border border-border p-4">
           <div class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle text-accent">
             <Icon name="lucide:clock" class="w-5 h-5"/>
           </div>
@@ -75,7 +75,7 @@ const { t } = Astro.props;
       </div>
 
 		{/* Map */}
-      <div class="map-container rounded-xl overflow-hidden border border-border bg-bg-card min-h-[320px]">
+      <div class="map-container rounded-xl overflow-hidden border border-border border-t-2 border-t-accent bg-bg-card min-h-[320px]">
         <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882.23900112238!2d32.06054811341995!3d49.44632450684321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d14c829fa1d363%3A0x2ae97a05c6da54aa!2z0YPQuy4g0JHQsNC50LTRiyDQktC40YjQvdC10LLQtdGG0LrQvtCz0L4sIDM3LCDQp9C10YDQutCw0YHRgdGLLCDQp9C10YDQutCw0YHRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0KPQutGA0LDQuNC90LAsIDE4MDAw!5e0!3m2!1sru!2spl!4v1777023472355!5m2!1sru!2spl"
                 width="100%"
@@ -102,8 +102,8 @@ const { t } = Astro.props;
     </style>
 
 	  {/* Compact legal strip */}
-    <div class="mt-12 pt-8 border-t border-border">
-      <dl class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-text-muted">
+    <div class="mt-12 pt-8">
+      <dl class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-text-muted rounded-lg bg-bg-card border border-border p-4">
         <div class="flex gap-1.5">
           <dt>{t.legal.edrpouLabel}:</dt>
           <dd class="text-text-secondary">{t.legal.edrpou}</dd>

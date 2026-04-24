@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import type { Dictionary } from '../../i18n/useTranslations';
 
 interface Props {
@@ -6,15 +7,17 @@ interface Props {
 }
 
 const { t } = Astro.props;
+const statIcons = ['lucide:users', 'lucide:globe', 'lucide:clock', 'lucide:shield-check'] as const;
 ---
 
-<section class="section-reveal py-24 md:py-32 bg-bg-secondary" aria-labelledby="numbers-heading">
+<section class="section-reveal py-32 md:py-40 bg-numbers-gradient" aria-labelledby="numbers-heading">
   <div class="mx-auto max-w-[var(--content-max)] px-6">
     <h2 id="numbers-heading" class="sr-only">{t.numbers.sectionLabel}</h2>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-      {t.numbers.items.map((item) => (
-        <div class="text-center">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {t.numbers.items.map((item, i) => (
+        <div class="stat-card rounded-xl border border-border bg-bg-card/50 p-6 text-center">
+          <Icon name={statIcons[i]} class="w-6 h-6 mx-auto text-text-muted mb-4" aria-hidden="true" />
           <p class="text-display text-accent leading-none">
             <span class="count-up" data-target={item.value}>0</span>{item.suffix}
           </p>

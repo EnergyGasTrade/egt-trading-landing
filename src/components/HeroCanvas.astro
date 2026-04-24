@@ -1,0 +1,229 @@
+---
+/**
+ * HeroCanvas — animated energy network background for the Hero section.
+ * Renders nodes (substations) connected by edges with glowing energy pulses.
+ * Lazy-loaded, theme-reactive, reduced-motion aware.
+ */
+---
+
+<canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
+
+<script is:inline>
+(function initHeroCanvas() {
+  function boot() {
+    var canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animId = null;
+    var nodes = [];
+    var edges = [];
+    var pulses = [];
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    // --- Theme colors ---
+    function getColors() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return isDark
+        ? { node: 'rgba(100,140,220,0.45)', edge: 'rgba(77,111,255,0.12)', pulse: '#4D6FFF', glow: 'rgba(77,111,255,0.5)' }
+        : { node: 'rgba(120,120,150,0.22)', edge: 'rgba(30,64,255,0.07)', pulse: '#1E40FF', glow: 'rgba(30,64,255,0.3)' };
+    }
+    var colors = getColors();
+
+    // Watch theme changes
+    var observer = new MutationObserver(function () { colors = getColors(); });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    // --- Resize ---
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    // --- Generate network ---
+    function generateNetwork() {
+      var w = canvas.width / dpr;
+      var h = canvas.height / dpr;
+      nodes = [];
+      edges = [];
+      pulses = [];
+
+      // Create nodes with some structure — grid-biased with jitter
+      var cols = 6;
+      var rows = 4;
+      var cellW = w / cols;
+      var cellH = h / rows;
+
+      for (var r = 0; r < rows; r++) {
+        for (var c = 0; c < cols; c++) {
+          // Skip some cells for organic feel (~60% fill)
+          if (Math.random() > 0.6) continue;
+          nodes.push({
+            x: cellW * (c + 0.2 + Math.random() * 0.6),
+            y: cellH * (r + 0.2 + Math.random() * 0.6),
+            radius: 1.5 + Math.random() * 1.5
+          });
+        }
+      }
+
+      // Ensure minimum nodes
+      while (nodes.length < 12) {
+        nodes.push({
+          x: 40 + Math.random() * (w - 80),
+          y: 40 + Math.random() * (h - 80),
+          radius: 1.5 + Math.random() * 1.5
+        });
+      }
+
+      // Connect nearest neighbors (2-3 edges per node)
+      for (var i = 0; i < nodes.length; i++) {
+        var dists = [];
+        for (var j = 0; j < nodes.length; j++) {
+          if (i === j) continue;
+          var dx = nodes[i].x - nodes[j].x;
+          var dy = nodes[i].y - nodes[j].y;
+          dists.push({ idx: j, d: Math.sqrt(dx * dx + dy * dy) });
+        }
+        dists.sort(function (a, b) { return a.d - b.d; });
+
+        var count = 2 + Math.floor(Math.random() * 2); // 2-3 connections
+        for (var k = 0; k < Math.min(count, dists.length); k++) {
+          var ni = i;
+          var nj = dists[k].idx;
+          // Skip very long edges
+          if (dists[k].d > Math.max(w, h) * 0.4) continue;
+          // Deduplicate
+          var exists = false;
+          for (var e = 0; e < edges.length; e++) {
+            if ((edges[e].a === ni && edges[e].b === nj) || (edges[e].a === nj && edges[e].b === ni)) {
+              exists = true;
+              break;
+            }
+          }
+          if (!exists) {
+            edges.push({ a: ni, b: nj });
+          }
+        }
+      }
+
+      // Create pulses on random edges
+      var pulseCount = Math.max(6, Math.floor(edges.length * 0.4));
+      for (var p = 0; p < pulseCount; p++) {
+        var edgeIdx = Math.floor(Math.random() * edges.length);
+        pulses.push({
+          edge: edgeIdx,
+          t: Math.random(), // position along edge [0,1]
+          speed: 0.001 + Math.random() * 0.003, // per frame
+          size: 2 + Math.random() * 2
+        });
+      }
+    }
+
+    // --- Draw ---
+    function draw() {
+      var w = canvas.width / dpr;
+      var h = canvas.height / dpr;
+      ctx.clearRect(0, 0, w, h);
+
+      // Draw edges
+      ctx.strokeStyle = colors.edge;
+      ctx.lineWidth = 1;
+      for (var e = 0; e < edges.length; e++) {
+        var a = nodes[edges[e].a];
+        var b = nodes[edges[e].b];
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+
+      // Draw nodes
+      for (var n = 0; n < nodes.length; n++) {
+        ctx.beginPath();
+        ctx.arc(nodes[n].x, nodes[n].y, nodes[n].radius, 0, Math.PI * 2);
+        ctx.fillStyle = colors.node;
+        ctx.fill();
+      }
+
+      // Draw pulses
+      for (var p = 0; p < pulses.length; p++) {
+        var pulse = pulses[p];
+        var edge = edges[pulse.edge];
+        var na = nodes[edge.a];
+        var nb = nodes[edge.b];
+        var px = na.x + (nb.x - na.x) * pulse.t;
+        var py = na.y + (nb.y - na.y) * pulse.t;
+
+        // Glow
+        ctx.beginPath();
+        ctx.arc(px, py, pulse.size * 3, 0, Math.PI * 2);
+        ctx.fillStyle = colors.glow;
+        ctx.fill();
+
+        // Core
+        ctx.beginPath();
+        ctx.arc(px, py, pulse.size, 0, Math.PI * 2);
+        ctx.fillStyle = colors.pulse;
+        ctx.fill();
+      }
+    }
+
+    // --- Animate ---
+    function animate() {
+      for (var p = 0; p < pulses.length; p++) {
+        pulses[p].t += pulses[p].speed;
+        if (pulses[p].t > 1) {
+          pulses[p].t = 0;
+          // Optionally jump to a new random edge
+          if (Math.random() > 0.5) {
+            pulses[p].edge = Math.floor(Math.random() * edges.length);
+          }
+        }
+      }
+      draw();
+      animId = requestAnimationFrame(animate);
+    }
+
+    // --- Init ---
+    resize();
+    generateNetwork();
+
+    if (reducedMotion) {
+      draw(); // Static frame only
+    } else {
+      animate();
+    }
+
+    // Debounced resize
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        resize();
+        generateNetwork();
+        if (reducedMotion) draw();
+      }, 200);
+    });
+
+    // Cleanup on page transition (View Transitions)
+    document.addEventListener('astro:before-swap', function cleanup() {
+      if (animId) cancelAnimationFrame(animId);
+      observer.disconnect();
+      document.removeEventListener('astro:before-swap', cleanup);
+    });
+  }
+
+  // Re-init on Astro page loads (View Transitions)
+  document.addEventListener('astro:page-load', function () {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(boot);
+    } else {
+      setTimeout(boot, 50);
+    }
+  });
+})();
+</script>

@@ -40,8 +40,8 @@
   --color-accent-subtle: #4D6FFF1A;
 
   --color-bg: #0A0A0A;
-  --color-bg-secondary: #141414;
-  --color-bg-card: #1A1A1A;
+  --color-bg-secondary: #0d1117;
+  --color-bg-card: #151520;
   --color-bg-header: rgba(10, 10, 10, 0.8);
 
   --color-text: #E8E8E8;
@@ -49,7 +49,7 @@
   --color-text-muted: #666666;
   --color-text-inverse: #0F0F0F;
 
-  --color-border: #262626;
+  --color-border: #1e2330;
   --color-border-hover: #404040;
 
   --color-focus-ring: #4D6FFF80;
@@ -206,6 +206,18 @@ body {
     }
   }
 
+  /* Staggered reveal for service cards */
+  .service-grid > :nth-child(1) { animation-delay: 0ms; }
+  .service-grid > :nth-child(2) { animation-delay: 100ms; }
+  .service-grid > :nth-child(3) { animation-delay: 200ms; }
+  .service-grid > :nth-child(4) { animation-delay: 300ms; }
+
+  .service-grid > * {
+    animation: sectionFadeIn linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+
   .card-hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -215,8 +227,12 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
 
+  [data-theme="dark"] .card-hover {
+    box-shadow: 0 0 40px rgba(77, 111, 255, 0.04);
+  }
+
   [data-theme="dark"] .card-hover:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(77, 111, 255, 0.1);
   }
 }
 
@@ -251,6 +267,64 @@ body {
   .card-hover {
     transition: none !important;
   }
+}
+
+/* ──────────────────────────────────────────────
+   Key Numbers gradient background
+   ────────────────────────────────────────────── */
+.bg-numbers-gradient {
+  background: linear-gradient(180deg, #eef1fa 0%, var(--color-bg-secondary) 100%);
+}
+
+[data-theme="dark"] .bg-numbers-gradient {
+  background: linear-gradient(180deg, #0c1020 0%, var(--color-bg-secondary) 100%);
+}
+
+[data-theme="dark"] .stat-card {
+  background: rgba(21, 21, 32, 0.6);
+  box-shadow: inset 0 1px 0 rgba(77, 111, 255, 0.06);
+}
+
+/* ──────────────────────────────────────────────
+   Dark mode section separators
+   ────────────────────────────────────────────── */
+[data-theme="dark"] .section-divider {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ──────────────────────────────────────────────
+   Subtle noise texture
+   ────────────────────────────────────────────── */
+.bg-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .bg-noise::before {
+  opacity: 0.04;
+}
+
+/* ──────────────────────────────────────────────
+   Hero diagonal divider
+   ────────────────────────────────────────────── */
+.hero-divider {
+  position: relative;
+}
+
+.hero-divider::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--color-bg);
+  clip-path: polygon(0 100%, 100% 40%, 100% 100%);
+  pointer-events: none;
 }
 
 /* ──────────────────────────────────────────────

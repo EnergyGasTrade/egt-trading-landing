@@ -9,25 +9,25 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<section id="services" class="section-reveal py-24 md:py-32" aria-labelledby="services-heading">
+<section id="services" class="relative section-reveal section-divider bg-noise py-24 md:py-32" aria-labelledby="services-heading">
   <div class="mx-auto max-w-[var(--content-max)] px-6">
     <span class="text-xs font-semibold uppercase tracking-widest text-accent">{t.services.sectionLabel}</span>
     <h2 id="services-heading" class="text-heading-1 text-text mt-4 mb-12">
       {t.services.title}
     </h2>
 
-    <div class="grid sm:grid-cols-2 gap-6">
+    <div class="grid sm:grid-cols-2 gap-6 service-grid">
       {t.services.items.map((item) => (
-        <article class="card-hover group relative rounded-xl border border-border bg-bg-card p-8 overflow-hidden">
-          {/* Accent edge — reveals on hover */}
+        <article class="card-hover group relative rounded-xl border border-border bg-bg-card p-10 overflow-hidden">
+          {/* Accent edge — always visible, intensifies on hover */}
           <div
-            class="absolute inset-y-0 left-0 w-1 bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            class="absolute inset-y-0 left-0 w-1 bg-accent opacity-30 group-hover:opacity-100 transition-opacity duration-200"
             aria-hidden="true"
           ></div>
 
-          <div class="flex items-start gap-4">
-            <div class="shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-accent-subtle text-accent">
-              <Icon name={item.icon} class="w-6 h-6" />
+          <div class="flex items-start gap-5">
+            <div class="shrink-0 flex items-center justify-center w-16 h-16 rounded-xl bg-accent-subtle text-accent">
+              <Icon name={item.icon} class="w-8 h-8" />
             </div>
             <div>
               <h3 class="text-heading-3 text-text mb-2">{item.title}</h3>
