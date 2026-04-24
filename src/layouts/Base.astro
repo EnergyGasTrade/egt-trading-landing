@@ -21,7 +21,7 @@ const alternateEn = `${siteUrl}${getAlternateUrl(currentUrl, 'en')}`;
 ---
 
 <!doctype html>
-<html lang={locale} data-theme="dark">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,12 +30,10 @@ const alternateEn = `${siteUrl}${getAlternateUrl(currentUrl, 'en')}`;
     <script is:inline>
       (function () {
         const stored = localStorage.getItem('theme');
-        if (stored === 'light' || stored === 'dark') {
-          document.documentElement.setAttribute('data-theme', stored);
-        } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-        // else: stays on "dark" (default in HTML)
+        const theme = (stored === 'light' || stored === 'dark')
+          ? stored
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
 

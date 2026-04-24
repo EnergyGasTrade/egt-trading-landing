@@ -31,7 +31,7 @@
     "sectionLabel": "Ключові цифри",
     "items": [
       { "value": 15, "suffix": "+", "label": "років досвіду команди" },
-      { "value": 2, "suffix": "", "label": "ринки: UA + EU" },
+      { "value": 6, "suffix": "", "label": "ринки: UA + HU, SK, PL, RO, RS" },
       { "value": 24, "suffix": "/7", "label": "трейдинговий деск" },
       { "value": 365, "suffix": "", "label": "днів на рік" }
     ]

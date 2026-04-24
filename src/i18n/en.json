@@ -31,7 +31,7 @@
     "sectionLabel": "Key figures",
     "items": [
       { "value": 15, "suffix": "+", "label": "years of team experience" },
-      { "value": 2, "suffix": "", "label": "markets: UA + EU" },
+      { "value": 6, "suffix": "", "label": "markets: UA + HU, SK, PL, RO, RS" },
       { "value": 24, "suffix": "/7", "label": "trading desk" },
       { "value": 365, "suffix": "", "label": "days a year" }
     ]
@@ -68,7 +68,7 @@
     "address": "Address",
     "addressValue": "[OFFICE_ADDRESS_EN]",
     "phone": "Phone",
-    "phoneValue": "[PHONE]",
+    "phoneValue": "+380 ",
     "email": "Email",
     "emailValue": "[EMAIL]",
     "hours": "Working hours",
