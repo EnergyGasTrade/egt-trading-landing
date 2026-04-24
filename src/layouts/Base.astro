@@ -29,12 +29,25 @@ const alternateEn = `${siteUrl}${getAlternateUrl(currentUrl, 'en')}`;
     {/* Theme script — MUST run before any render to prevent FOUC */}
     <script is:inline>
       (function () {
+        function getTheme() {
+          var stored = localStorage.getItem('theme');
+          return (stored === 'light' || stored === 'dark')
+            ? stored
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        }
+        document.documentElement.setAttribute('data-theme', getTheme());
+      })();
+    </script>
+
+    {/* Preserve theme across View Transitions (runs once as module) */}
+    <script>
+      document.addEventListener('astro:before-swap', (event) => {
         const stored = localStorage.getItem('theme');
         const theme = (stored === 'light' || stored === 'dark')
           ? stored
           : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
+        event.newDocument.documentElement.setAttribute('data-theme', theme);
+      });
     </script>
 
     <title>{title}</title>

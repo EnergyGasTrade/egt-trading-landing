@@ -9,6 +9,8 @@ interface Props {
 }
 
 const { locale, t } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const homeUrl = locale === 'uk' ? `${base}/` : `${base}/en/`;
 const langSwitchUrl = getAlternateUrl(Astro.url, locale === 'uk' ? 'en' : 'uk');
 ---
 
@@ -20,7 +22,7 @@ const langSwitchUrl = getAlternateUrl(Astro.url, locale === 'uk' ? 'en' : 'uk');
     <div class="mx-auto max-w-[var(--content-max)] px-6 flex items-center justify-between h-16">
       {/* Logo */}
       <a
-        href={locale === 'uk' ? '/' : '/en/'}
+        href={homeUrl}
         class="text-text font-display text-xl font-bold tracking-tight hover:text-accent transition-colors"
         aria-label="EGT Trading — home"
       >
