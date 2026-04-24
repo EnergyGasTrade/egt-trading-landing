@@ -8,6 +8,16 @@
 
 <div class="energy-map" aria-hidden="true">
   <svg viewBox="434 375 63 43" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+    <defs>
+      <filter id="spark-glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="0.5" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
     {/* Poland */}
     <path
       d="M457.109,390.184l0.733,1.348l0.174,1.435l-0.604,1.392l-1.383,2.664l-1.167,0.526l-1.514-0.657l-0.908,0.043l-2.204,0.83l-2.506-0.742l-4.062-2.879l-3.978-2.135l-1.6-2.438l-0.303-5.75l3.112-2.705l4.062-1.35l1.328-0.138l0.315,1.007l1.725,0.692l4.766,0.09l1.47-0.043l2.421,3.708l-0.604,1.521l0.259,1.789Z"
@@ -48,38 +58,62 @@
     />
     <text x="472" y="398" class="country-label label-ua" text-anchor="middle">UA</text>
 
-    {/* Connection lines — dashed, placed at actual SVG border contact points */}
-    {/* PL ↔ UA: 750 kV Rzeszów–Khmelnytskyi */}
-    <line x1="453" y1="391" x2="462" y2="397" class="connection-line" />
-    {/* SK ↔ UA: 400 kV Mukachevo–V. Kapušany */}
-    <line x1="451" y1="400" x2="460" y2="399" class="connection-line" />
-    {/* HU ↔ UA: 750 kV Albertirsa–Zakhidnoukrainska */}
-    <line x1="452" y1="403" x2="461" y2="399" class="connection-line" />
-    {/* RO ↔ UA: Burshtyn island 220/400 kV */}
-    <line x1="458" y1="405" x2="466" y2="398" class="connection-line" />
+    {/* Subtle guide lines — thin traces showing interconnector routes */}
+    <line x1="453" y1="391" x2="462" y2="397" class="guide-line" />
+    <line x1="451" y1="400" x2="460" y2="399" class="guide-line" />
+    <line x1="452" y1="403" x2="461" y2="399" class="guide-line" />
+    <line x1="458" y1="405" x2="466" y2="398" class="guide-line" />
 
     {/* Pulsing dots — positioned exactly at SVG border contact midpoints */}
-    {/* PL ↔ UA: border midpoint (457.7, 394.5) */}
     <circle cx="457.7" cy="394.5" r="0.8" class="pulse-dot dot-1" />
     <circle cx="457.7" cy="394.5" r="0.8" class="pulse-ring dot-1" />
-
-    {/* SK ↔ UA: border midpoint (456.1, 399.5) */}
     <circle cx="456.1" cy="399.5" r="0.8" class="pulse-dot dot-2" />
     <circle cx="456.1" cy="399.5" r="0.8" class="pulse-ring dot-2" />
-
-    {/* HU ↔ UA: border midpoint (457, 400.6) */}
     <circle cx="457" cy="400.6" r="0.8" class="pulse-dot dot-3" />
     <circle cx="457" cy="400.6" r="0.8" class="pulse-ring dot-3" />
-
-    {/* RO ↔ UA: border midpoint (462.1, 401.2) */}
     <circle cx="462.1" cy="401.2" r="0.8" class="pulse-dot dot-4" />
     <circle cx="462.1" cy="401.2" r="0.8" class="pulse-ring dot-4" />
 
-    {/* Energy flow particles — on the EU-country side of each line */}
-    <circle cx="455" cy="392.5" r="0.5" class="flow-particle flow-1" />
-    <circle cx="453" cy="399.8" r="0.5" class="flow-particle flow-2" />
-    <circle cx="454" cy="402" r="0.5" class="flow-particle flow-3" />
-    <circle cx="460" cy="403.5" r="0.5" class="flow-particle flow-4" />
+    {/* Animated energy sparks — travel back and forth along interconnector routes */}
+    {/* PL ↔ UA: 750 kV Rzeszów–Khmelnytskyi */}
+    <circle r="0.5" class="energy-spark" filter="url(#spark-glow)">
+      <animateMotion dur="3.5s" repeatCount="indefinite" calcMode="linear"
+        path="M453,391 L462,397" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.35" class="energy-spark spark-dim" filter="url(#spark-glow)">
+      <animateMotion dur="3.5s" repeatCount="indefinite" calcMode="linear" begin="1.75s"
+        path="M462,397 L453,391" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+
+    {/* SK ↔ UA: 400 kV Mukachevo–V. Kapušany */}
+    <circle r="0.5" class="energy-spark" filter="url(#spark-glow)">
+      <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear"
+        path="M451,400 L460,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.35" class="energy-spark spark-dim" filter="url(#spark-glow)">
+      <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear" begin="2s"
+        path="M460,399 L451,400" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+
+    {/* HU ↔ UA: 750 kV Albertirsa–Zakhidnoukrainska */}
+    <circle r="0.5" class="energy-spark" filter="url(#spark-glow)">
+      <animateMotion dur="3.2s" repeatCount="indefinite" calcMode="linear"
+        path="M452,403 L461,399" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.35" class="energy-spark spark-dim" filter="url(#spark-glow)">
+      <animateMotion dur="3.2s" repeatCount="indefinite" calcMode="linear" begin="1.6s"
+        path="M461,399 L452,403" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+
+    {/* RO ↔ UA: Burshtyn island 220/400 kV */}
+    <circle r="0.5" class="energy-spark" filter="url(#spark-glow)">
+      <animateMotion dur="4.5s" repeatCount="indefinite" calcMode="linear"
+        path="M458,405 L466,398" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
+    <circle r="0.35" class="energy-spark spark-dim" filter="url(#spark-glow)">
+      <animateMotion dur="4.5s" repeatCount="indefinite" calcMode="linear" begin="2.25s"
+        path="M466,398 L458,405" keyPoints="0;1;0" keyTimes="0;0.5;1" />
+    </circle>
   </svg>
 </div>
 
@@ -120,12 +154,11 @@
     font-size: 1.8px;
   }
 
-  /* Connection lines */
-  .connection-line {
+  /* Subtle guide lines — thin traces for interconnector routes */
+  .guide-line {
     stroke: var(--color-accent);
-    stroke-width: 0.35;
-    stroke-dasharray: 1 0.6;
-    opacity: 0.5;
+    stroke-width: 0.2;
+    opacity: 0.15;
   }
 
   /* Pulsing dots at border crossings */
@@ -140,10 +173,14 @@
     opacity: 0;
   }
 
-  /* Flow particles */
-  .flow-particle {
+  /* Energy sparks — animated glowing dots */
+  .energy-spark {
     fill: var(--color-accent);
-    opacity: 0;
+    opacity: 0.9;
+  }
+
+  .spark-dim {
+    opacity: 0.5;
   }
 
   /* Animations */
@@ -156,14 +193,6 @@
     .pulse-ring.dot-3 { animation-delay: 1.2s; }
     .pulse-ring.dot-4 { animation-delay: 1.8s; }
 
-    .flow-particle {
-      animation: flowPulse 3s ease-in-out infinite;
-    }
-
-    .flow-2 { animation-delay: 0.7s; }
-    .flow-3 { animation-delay: 1.4s; }
-    .flow-4 { animation-delay: 2.1s; }
-
     @keyframes pulseRing {
       0% {
         r: 0.8;
@@ -174,10 +203,12 @@
         opacity: 0;
       }
     }
+  }
 
-    @keyframes flowPulse {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 0.9; }
+  /* Reduced motion: hide animated sparks */
+  @media (prefers-reduced-motion: reduce) {
+    .energy-spark {
+      display: none;
     }
   }
 </style>
